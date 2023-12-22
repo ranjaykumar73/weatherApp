@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #a9f0f1;
+    /* background-image: url(https://www.wallpaperflare.com/uplifting-rays-of-sunshine-weather-wallpaper-boxlb); */
+
+}
+.search{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.search input{
+    width: 20%;
+    border-radius: 10px;
+    height: 30px;
+}
+.search button{
+    border-radius: 10px;
+    margin-left: 20px;
+    
+}
+/* #today{
+    height: 1%;
+    font-size: 150%;
+   margin-top: -8%;
+   margin-left: 30%;
+} */
+#temp{
+    font-size: 200%;
+}
+#ranjay{
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+}
+.sundegree{
+    display: flex;
+    justify-content: space-evenly;
+     margin-top: 100px;
+    
+}
+.sundegree i{
+    font-size: 70px;
+}
+.wind{
+    margin-top: -20px;
+}
+#daily{
+    display: flex;
+    justify-content: space-evenly;
+}
+.weekDay i{
+    font-size: 40px;
+}
