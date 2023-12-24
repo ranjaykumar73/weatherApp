@@ -15,14 +15,14 @@
     const res = await data.json();
     let h5 = document.getElementById("ranjay");
     h5.innerText = res.name;
-    // console.log(res,"res")
+    console.log(res,"res")
    
 
     let ress = await fetch(
       `https://api.openweathermap.org/data/2.5/onecall?lat=${res.coord.lat}&lon=${res.coord.lon}&exclude=hourly,minutely&units=metric&appid=dd7fa73e412e7d4b26a84b058a427602`
     );
     let datas = await ress.json();
-    // console.log(datas, 'datas');
+    console.log(datas, 'datas');
     
     let div = document.getElementById("temp");
       div.innerHTML = `${Math.round(datas.current.temp)}&deg;C`;
@@ -32,20 +32,33 @@
       wind.innerHTML = `wind:${datas.current.wind_speed} km/ph`;
       let humidity = document.getElementById("humidity");
       humidity.innerHTML = `Humidity:${datas.current.humidity} g.m-3`;
+      let sunrise = document.getElementById("sunrise");
+      // sunrise.innerHTML = `Sunrise:${datas.current.sunrise}`;
+      // sunset.innerHTML = `Sunset:${datas.current.sunset}`;
+      const x = new Date(datas.current.sunrise* 1000);
+      sunrise.innerHTML = `Sunrise:${x.toLocaleTimeString()}`
+      // console.log(x);
+      let sunset = document.getElementById("sunset");
+      const y = new Date(datas.current.sunset* 1000);
+      sunset.innerHTML = `Sunset:${y.toLocaleTimeString()}`
+      // console.log(y);
+
+
+
   
 
     if (res.weather[0].main == "Clouds") {
-        let sundegree = document.getElementsByClassName(".sundegree");
+        // let sundegree = document.getElementsByClassName(".sundegree");
         let sunpara = document.querySelector("p");
-        sunpara.innerHTML = `<i class="fa-solid fa-cloud-moon-rain"></i>`;
+        sunpara.innerHTML = `<i class="fa-solid fa-cloud" style="color: #2eabe0;"></i>`;
       } else if (res.weather[0].main == "Rain") {
-        let sundegree = document.getElementsByClassName(".sundegree");
+        // let sundegree = document.getElementsByClassName(".sundegree");
         let sunpara = document.querySelector("p");
-        sunpara.innerHTML = `<i class="fa-solid fa-cloud-rain fa-beat-fade" style="color: #0a5ae6;"></i>`;
+        sunpara.innerHTML = `<i class="fa-solid fa-cloud-rain fa-shake" style="color: #5f88ce;"></i>`;
       } else if (res.weather[0].main == "Clear") {
-        let sundegree = document.getElementsByClassName(".sundegree");
+        // let sundegree = document.getElementsByClassName(".sundegree");
         let sunpara = document.querySelector("p");
-        sunpara.innerHTML = `<i class="fa-solid fa-sun fa-spin" style="color: #f7b708;"></i>`;
+        sunpara.innerHTML = `<i class="fa-solid fa-cloud-sun fa-fade" style="color: #4377d0;"></i>`;
       }
       
 
