@@ -5,6 +5,17 @@
   
   let main = document.getElementsByClassName("weather");
 
+
+
+
+  var inputElement = document.getElementById("city");
+
+    inputElement.addEventListener("keydown", function(e) {
+        if (e.keyCode === 13) {
+            weatherApiCall()
+        }
+    });
+
   const weatherApiCall = async () => {
     let city = document.getElementById("city").value;
     
